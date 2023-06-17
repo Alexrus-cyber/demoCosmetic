@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="st1_Rassadin_CosmeticModelStoreContainer" CdmEntityContainer="st1_Rassadin_CosmeticEntities1">
+    <EntitySetMapping Name="Client">
+      <EntityTypeMapping TypeName="st1_Rassadin_CosmeticModel.Client">
+        <MappingFragment StoreEntitySet="Client">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="passport" ColumnName="passport" />
+          <ScalarProperty Name="dataBirth" ColumnName="dataBirth" />
+          <ScalarProperty Name="adress" ColumnName="adress" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="password" ColumnName="password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employee">
+      <EntityTypeMapping TypeName="st1_Rassadin_CosmeticModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="code" ColumnName="code" />
+          <ScalarProperty Name="post" ColumnName="post" />
+          <ScalarProperty Name="FIO" ColumnName="FIO" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="services" ColumnName="services" />
+          <ScalarProperty Name="lastLog" ColumnName="lastLog" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Order">
+      <EntityTypeMapping TypeName="st1_Rassadin_CosmeticModel.Order">
+        <MappingFragment StoreEntitySet="Order">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="numberOfOrder" ColumnName="numberOfOrder" />
+          <ScalarProperty Name="dateStart" ColumnName="dateStart" />
+          <ScalarProperty Name="codeClient" ColumnName="codeClient" />
+          <ScalarProperty Name="services" ColumnName="services" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dateEnd" ColumnName="dateEnd" />
+          <ScalarProperty Name="codeEmployee" ColumnName="codeEmployee" />
+          <ScalarProperty Name="timeOrder" ColumnName="timeOrder" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OrderServices">
+      <EntityTypeMapping TypeName="st1_Rassadin_CosmeticModel.OrderServices">
+        <MappingFragment StoreEntitySet="OrderServices">
+          <ScalarProperty Name="idOrder" ColumnName="idOrder" />
+          <ScalarProperty Name="idService" ColumnName="idService" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Services">
+      <EntityTypeMapping TypeName="st1_Rassadin_CosmeticModel.Services">
+        <MappingFragment StoreEntitySet="Services">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="codeService" ColumnName="codeService" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="deviation" ColumnName="deviation" />
+          <ScalarProperty Name="price" ColumnName="price" />
+          <ScalarProperty Name="coast" ColumnName="coast" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="st1_Rassadin_CosmeticModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

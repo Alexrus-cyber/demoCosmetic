@@ -1,0 +1,32 @@
+﻿<Page x:Class="RussianCosmetic.AddEditPageServices"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RussianCosmetic"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="AddEditPageServices">
+
+    <Grid>
+        <StackPanel Width="700" HorizontalAlignment="Center">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text="Код клиента"></TextBlock>
+                <ComboBox x:Name="CodeClient" Width="400" Height="40" SelectedItem="{Binding Client}" DisplayMemberPath="FIO"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text="Status"></TextBlock>
+                <TextBox Width="200" Height="40" Text="{Binding status}"></TextBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text="Сотрудник"></TextBlock>
+                <ComboBox Name="EmloyeeList" Width="400" Height="40" SelectedItem="{Binding Employee}" DisplayMemberPath="FIO"></ComboBox>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock FontSize="16" Text="Время выполнения в часах"></TextBlock>
+                <TextBox Width="200" Height="40" Text="{Binding timeOrder}"></TextBox>
+            </StackPanel>
+            <Button x:Name="SaveBtn" Click="SaveBtn_Click" Height="40" Width="200" Content="Save"></Button>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -5,8 +5,16 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RussianCosmetic"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Русская Косметика" Icon="Resources/logo.ico" MinHeight="450" MinWidth="1200" Height="450" Width="1200">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Image HorizontalAlignment="Left" Width="50" Height="50" Margin="50,0,0,0" Source="Resources/logo.ico" />
+        <TextBlock FontSize="20" HorizontalAlignment="Right" x:Name="NameEmployee" Text=""></TextBlock>
+        <Button x:Name="LoginBtn" Width="100" Height="50" HorizontalAlignment="Right" Content="Войти" Click="LoginBtn_Click"></Button>
+        <Button x:Name="OrderBtn" Width="100" Height="50" HorizontalAlignment="Center" Content="Создать заказ" Click="OrderBtn_Click"></Button>
+        <Frame x:Name="MainFrame" Grid.Row="1"></Frame>
     </Grid>
 </Window>

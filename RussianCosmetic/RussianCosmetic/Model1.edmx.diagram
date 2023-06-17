@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8ad4c3dc00e44583846a3d18344ea1fd" Name="Diagram1">
+        <EntityTypeShape EntityType="st1_Rassadin_CosmeticModel.Client" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="st1_Rassadin_CosmeticModel.Employee" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="st1_Rassadin_CosmeticModel.Order" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="st1_Rassadin_CosmeticModel.OrderServices" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="st1_Rassadin_CosmeticModel.Services" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="st1_Rassadin_CosmeticModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="st1_Rassadin_CosmeticModel.FK_Order_Client" ManuallyRouted="false" />
+        <AssociationConnector Association="st1_Rassadin_CosmeticModel.FK_Order_Employee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

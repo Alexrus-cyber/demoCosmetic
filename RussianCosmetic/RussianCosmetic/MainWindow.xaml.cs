@@ -20,9 +20,24 @@ namespace RussianCosmetic
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static Employee user;
         public MainWindow()
         {
             InitializeComponent();
+            OrderBtn.Visibility = Visibility.Hidden;
+            Manager.MainFrame = MainFrame;
+            MainFrame.Navigate(new OrdersPage());
+           
+        }
+
+        private void LoginBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new LoginPage(this));
+        }
+
+        private void OrderBtn_Click(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new AddEditPageServices(null));
         }
     }
 }

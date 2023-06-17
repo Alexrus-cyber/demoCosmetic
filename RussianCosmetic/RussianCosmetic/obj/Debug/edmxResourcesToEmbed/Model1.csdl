@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="st1_Rassadin_CosmeticModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Client">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="String" MaxLength="20" FixedLength="true" Unicode="true" Nullable="false" />
+    <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="passport" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dataBirth" Type="DateTime" Precision="0" />
+    <Property Name="adress" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Client" FromRole="Client" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="code" />
+    </Key>
+    <Property Name="code" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="post" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="FIO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="login" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="services" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="lastLog" Type="DateTime" Precision="3" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_Employee" FromRole="Employee" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="numberOfOrder" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateStart" Type="DateTime" Precision="3" />
+    <Property Name="codeClient" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="services" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="dateEnd" Type="DateTime" Precision="3" />
+    <Property Name="codeEmployee" Type="Int32" Nullable="false" />
+    <Property Name="timeOrder" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+    <NavigationProperty Name="Client" Relationship="Self.FK_Order_Client" FromRole="Order" ToRole="Client" />
+    <NavigationProperty Name="Employee" Relationship="Self.FK_Order_Employee" FromRole="Order" ToRole="Employee" />
+  </EntityType>
+  <EntityType Name="OrderServices">
+    <Key>
+      <PropertyRef Name="idService" />
+    </Key>
+    <Property Name="idOrder" Type="Int32" Nullable="false" />
+    <Property Name="idService" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Services">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="codeService" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="time" Type="Int32" Nullable="false" />
+    <Property Name="deviation" Type="Decimal" Precision="18" Scale="3" />
+    <Property Name="price" Type="Int32" Nullable="false" />
+    <Property Name="coast" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Order_Client">
+    <End Role="Client" Type="Self.Client" Multiplicity="0..1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Client">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="codeClient" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_Employee">
+    <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Employee">
+        <PropertyRef Name="code" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="codeEmployee" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="st1_Rassadin_CosmeticEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Client" EntityType="Self.Client" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" />
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OrderServices" EntityType="Self.OrderServices" />
+    <EntitySet Name="Services" EntityType="Self.Services" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <AssociationSet Name="FK_Order_Client" Association="Self.FK_Order_Client">
+      <End Role="Client" EntitySet="Client" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_Employee" Association="Self.FK_Order_Employee">
+      <End Role="Employee" EntitySet="Employee" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
